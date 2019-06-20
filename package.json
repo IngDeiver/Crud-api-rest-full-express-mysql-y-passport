@@ -2,7 +2,7 @@
   "name": "comenzando-mysql",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Src/index.js",
   "scripts": {
     "start": "node Src/Index.js"
   },
