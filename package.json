@@ -4,7 +4,7 @@
   "description": "",
   "main": "Src/index.js",
   "scripts": {
-    "start": "node Src/Index.js"
+    "start": "nodemon Src/Index.js"
   },
   "author": "Deiver",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "bcrypt-nodejs": "0.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.17.1",
     "passport": "^0.4.0",

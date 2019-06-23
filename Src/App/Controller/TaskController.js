@@ -1,11 +1,11 @@
-const Crud = require('./CrudController')
+const Crud = require('../Controller/CrudController')
 
 const CreateTask =  (req, res, next )=> {
     Crud.create(res, next, 'tasks', req.body)
 }
 
 const Select =  (req, res, next) => {
-         Crud.select(res, next, 'tasks')
+    Crud.select(res, next, 'tasks', ['title', 'description'])
 }
 
 const Update =  (req, res, next) => {

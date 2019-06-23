@@ -1,27 +1,25 @@
 const pool = require('../Config/Database/Connection.js')
-const mysql = require('mysql')
 
-const create =   (res, next, table, columns) => {
-        pool.query('INSERT INTO ?? SET ?',[table, columns], (err, results, fields) => {
+const create = async  (res, next, table, columns) => {
+        await pool.query('INSERT INTO ?? SET ?',[table, columns], (err, results, fields) => {
             if(err) 
-                return  next(err)
-            res.json({'message':'Task Saved'})    
+                return  next(err)   
+            res.json({'message':`${table} Saved`})    
                 
-        }
-    )
+        })
 }
 const update = (res, next, table, id, columns) => {
     pool.query('UPDATE ?? SET ? WHERE  id = ?',[table, columns, id,], (err, results, fields)=> {
         if(err) 
             return next(err)
-        res.json({'message':'Task update'})
+        res.json({'message':`${table} Update`})
     })
 }
 const remove = (res, next, table, id) => {
     pool.query('DELETE FROM ?? WHERE id = ?',[table, id], (err, results, fields) => {
         if (err) 
             return next(err)
-        res.json({'message':'Task Delete'})
+        res.json({'message':`${table} Saved`})
     })
 }
 const findById =   (res, next, table, id) => {
@@ -31,13 +29,14 @@ const findById =   (res, next, table, id) => {
         res.json(results)
     })
 }
-const select =  (res, next, table) => {
-        pool.query('SELECT ?? FROM ??', [ ['title', 'description'], table], (err, results, fields)=> {
+const select =  (res, next, table, columns) => {
+        pool.query('SELECT ?? FROM ??', [ columns, table], (err, results, fields)=> {
             if (err)
                 return next(err)
             res.json(results)
         })    
 }
+
 
 module.exports = {
     create,
